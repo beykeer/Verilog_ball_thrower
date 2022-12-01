@@ -1,4 +1,5 @@
-module ball()
+module ball(clk, rst, update, xlength, ylength, ball);
+
 
 
 endmodule 
