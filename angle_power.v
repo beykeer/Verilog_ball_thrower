@@ -1,4 +1,4 @@
-module angle_power(clk, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, player);
+module angle_power(clk, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow);
 input clk, rst, angleup, angledown, powerup, powerdown, update;
 input [9:0]xCount;
 input [9:0]yCount;
@@ -7,10 +7,14 @@ output arrow;
 reg arrow;
 wire rst;
 
+always @(posedge clk)
+begin
+	arrow = (xCount > arrowX[0] && xCount < (arrowX[0] + 10'd10)) && (yCount > arrowY[0] && yCount < (arrowY[0] + 10'd10));
 
+end
 
-
-
+reg[9:0] arrowX [0:5];
+reg [8:0]arrowY [0:5]; 
 
 
 //determines the direction and power ball is launched
@@ -77,3 +81,42 @@ always @(*)
 					NS = STAY;
 			end
 	endcase
+
+	always @(posedge update) 
+	begin
+	if (rst == 1'b1)
+		begin //starting position
+			arrowX[0] <=// 10'd75;
+			arrowY[0] <=// 9'd385;
+		end
+	else
+		case(S)
+			ANGLEUP:
+				begin
+					arrowX[0] <= //(arrowX[0] - 10'd4);
+					arrowY[0] <= //(arrowY[0] - 9'd4);
+				end
+			ANGLEDOWN:
+				begin
+					arrowX[0] <= //(arrowX[0] - 10'd4);
+					arrowY[0] <= //(arrowY[0] + 9'd4);
+				end
+			POWERUP:
+				begin
+					arrowX[0] <= //(arrowX[0] - 10'd4);
+					arrowY[0] <= //(arrowY[0] + 9'd4);
+				end
+			POWERDOWN:
+				begin
+					arrowX[0] <= //(arrowX[0] + 10'd4);
+					arrowY[0] <= //(arrowY[0] + 9'd4);
+				end
+			STAY:
+				begin
+					arrowX[0] <= arrowX[0];
+					arrowY[0] <= arrowY[0];
+				end
+		endcase
+	end
+	
+endmodule 
