@@ -1,8 +1,10 @@
-module angle_power(clk, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow);
+module angle_power(clk, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow,Vel,Ang);
 input clk, rst, angleup, angledown, powerup, powerdown, update;
 input [9:0]xCount;
 input [9:0]yCount;
 output arrow;
+output [2:0]Vel;
+output [4:0]Ang;
 
 reg arrow;
 wire rst;
@@ -42,6 +44,7 @@ always @(*)
 			begin
 				if(angleup == 1'b0)
 					NS = ANGLEUP;
+					
 				else
 					NS = STAY;
 			end
@@ -86,30 +89,30 @@ always @(*)
 	begin
 	if (rst == 1'b1)
 		begin //starting position
-			arrowX[0] <=// 10'd75;
-			arrowY[0] <=// 9'd385;
+			arrowX[0] <= 10'd31;
+			arrowY[0] <= 9'd443;
 		end
 	else
 		case(S)
 			ANGLEUP:
 				begin
-					arrowX[0] <= //(arrowX[0] - 10'd4);
-					arrowY[0] <= //(arrowY[0] - 9'd4);
+					arrowX[0] <= (arrowX[0] - 10'd1);
+					arrowY[0] <= (arrowY[0] - 9'd4);
 				end
 			ANGLEDOWN:
 				begin
-					arrowX[0] <= //(arrowX[0] - 10'd4);
-					arrowY[0] <= //(arrowY[0] + 9'd4);
+					arrowX[0] <= (arrowX[0] + 10'd1);
+					arrowY[0] <= (arrowY[0] + 9'd4);
 				end
 			POWERUP:
 				begin
-					arrowX[0] <= //(arrowX[0] - 10'd4);
-					arrowY[0] <= //(arrowY[0] + 9'd4);
+					arrowX[0] <= (arrowX[0] + 10'd4);
+					arrowY[0] <= (arrowY[0] - 9'd10);
 				end
 			POWERDOWN:
 				begin
-					arrowX[0] <= //(arrowX[0] + 10'd4);
-					arrowY[0] <= //(arrowY[0] + 9'd4);
+					arrowX[0] <= (arrowX[0] - 10'd4);
+					arrowY[0] <= (arrowY[0] + 9'd10);
 				end
 			STAY:
 				begin
