@@ -1,0 +1,8 @@
+
+State Machine - |Ball_thrower|angle_power:aandp|S
+Name S.ANGLEUP S.POWERDOWN S.POWERUP S.ANGLEDOWN S.STAY 
+S.STAY 0 0 0 0 0 
+S.ANGLEDOWN 0 0 0 1 1 
+S.POWERUP 0 0 1 0 1 
+S.POWERDOWN 0 1 0 0 1 
+S.ANGLEUP 1 0 0 0 1 

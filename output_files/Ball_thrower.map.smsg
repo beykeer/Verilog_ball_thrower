@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at angle_power.v(2): object "angleup" differs only in case from object "ANGLEUP" in the same scope File: M:/Verilog_ball_thrower-main/angle_power.v Line: 2
+Info (10281): Verilog HDL Declaration information at angle_power.v(2): object "angledown" differs only in case from object "ANGLEDOWN" in the same scope File: M:/Verilog_ball_thrower-main/angle_power.v Line: 2
+Info (10281): Verilog HDL Declaration information at angle_power.v(2): object "powerup" differs only in case from object "POWERUP" in the same scope File: M:/Verilog_ball_thrower-main/angle_power.v Line: 2
+Info (10281): Verilog HDL Declaration information at angle_power.v(2): object "powerdown" differs only in case from object "POWERDOWN" in the same scope File: M:/Verilog_ball_thrower-main/angle_power.v Line: 2
