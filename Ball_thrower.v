@@ -3,7 +3,7 @@ module Ball_thrower(
   input         CLOCK_50,
 
 // Push Button
-  input  [3:0]  KEY;         // Pushbutton[3:0]
+  input  [3:0] KEY,         // Pushbutton[3:0]
 
   // DPDT Switch
   input  [17:0] SW,          // Toggle Switch[17:0]
@@ -18,8 +18,6 @@ module Ball_thrower(
   output reg [7:0]  VGA_G,       // VGA Green[9:0]
   output reg [7:0]  VGA_B       // VGA Blue[9:0]
   );
-  
-  
 wire clk;
 wire rst;
 
@@ -27,7 +25,7 @@ assign clk = CLOCK_50;
 assign rst = SW[17];
 
 
-wire VGA_CLK; 
+//reg VGA_CLK; 
 wire update;
 
 switch_clock clocks(clk, update, VGA_CLK); //converts the board clock to VGA clock and frame update clock
@@ -47,7 +45,7 @@ assign powerdown = KEY[3];
 
 angle_power aandp(VGA_CLK, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow);
 
-
+//ball(VGA_CLK,rst,update,xCount,yCount,ball);
 
 //display
 wire [9:0] xCount; 
