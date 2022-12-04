@@ -22,8 +22,11 @@ wire clk;
 wire rst;
 
 assign clk = CLOCK_50;
+assign go = SW[0];
 assign rst = SW[17];
 
+wire [9:0]Vel_x;
+wire [9:0]Vel_y;
 
 //reg VGA_CLK; 
 wire update;
@@ -43,9 +46,12 @@ assign angledown = KEY[1];
 assign powerup = KEY[2];
 assign powerdown = KEY[3];
 
-angle_power aandp(VGA_CLK, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow);
+wire [2:0]Vel;
+wire [4:0]Ang;
 
-//ball(VGA_CLK,rst,update,xCount,yCount,ball);
+angle_power aandp(VGA_CLK, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow,Vel,Ang);
+
+ball(VGA_CLK,rst,update,xCount,yCount,Vel_x,Vel_y,ball);
 
 //display
 wire [9:0] xCount; 

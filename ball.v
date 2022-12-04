@@ -1,8 +1,10 @@
-module ball(clk,rst,update,xCount,yCount,,,ball);
+module ball(clk,rst,update,xCount,yCount,Vel_x,Vel_y,ball);
 
 input clk, rst, update;
 input [9:0]xCount;
 input [9:0]yCount;
+input [9:0]Vel_x;
+input [9:0]Vel_y;
 output ball;
 
 reg ball;

@@ -1,4 +1,4 @@
-module angle_power(clk, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow,Vel,Ang);
+module angle_power(clk, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow, Vel, Ang);
 input clk, rst, angleup, angledown, powerup, powerdown, update;
 input [9:0]xCount;
 input [9:0]yCount;
