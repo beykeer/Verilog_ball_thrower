@@ -1,0 +1,149 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'switch_clock:clocks|update'
+Slack : -24.040
+TNS   : -687.099
+
+Type  : Slow 1200mV 85C Model Setup 'switch_clock:clocks|VGA_CLK'
+Slack : -4.749
+TNS   : -112.197
+
+Type  : Slow 1200mV 85C Model Setup 'angle_power:aandp|Ang[0]'
+Slack : -4.385
+TNS   : -69.775
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -3.627
+TNS   : -41.396
+
+Type  : Slow 1200mV 85C Model Hold 'angle_power:aandp|Ang[0]'
+Slack : -0.679
+TNS   : -6.455
+
+Type  : Slow 1200mV 85C Model Hold 'switch_clock:clocks|update'
+Slack : 0.388
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.390
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'switch_clock:clocks|VGA_CLK'
+Slack : 0.671
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'switch_clock:clocks|update'
+Slack : -3.000
+TNS   : -203.057
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -35.125
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'switch_clock:clocks|VGA_CLK'
+Slack : -1.285
+TNS   : -68.105
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'angle_power:aandp|Ang[0]'
+Slack : 0.395
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'switch_clock:clocks|update'
+Slack : -21.584
+TNS   : -614.868
+
+Type  : Slow 1200mV 0C Model Setup 'switch_clock:clocks|VGA_CLK'
+Slack : -4.284
+TNS   : -97.721
+
+Type  : Slow 1200mV 0C Model Setup 'angle_power:aandp|Ang[0]'
+Slack : -4.057
+TNS   : -64.695
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -3.276
+TNS   : -35.164
+
+Type  : Slow 1200mV 0C Model Hold 'angle_power:aandp|Ang[0]'
+Slack : -0.755
+TNS   : -7.557
+
+Type  : Slow 1200mV 0C Model Hold 'switch_clock:clocks|update'
+Slack : 0.340
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'switch_clock:clocks|VGA_CLK'
+Slack : 0.614
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'switch_clock:clocks|update'
+Slack : -3.000
+TNS   : -201.879
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -35.125
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'switch_clock:clocks|VGA_CLK'
+Slack : -1.285
+TNS   : -68.105
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'angle_power:aandp|Ang[0]'
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'switch_clock:clocks|update'
+Slack : -11.356
+TNS   : -279.614
+
+Type  : Fast 1200mV 0C Model Setup 'angle_power:aandp|Ang[0]'
+Slack : -1.984
+TNS   : -31.459
+
+Type  : Fast 1200mV 0C Model Setup 'switch_clock:clocks|VGA_CLK'
+Slack : -1.833
+TNS   : -30.377
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -1.302
+TNS   : -8.860
+
+Type  : Fast 1200mV 0C Model Hold 'angle_power:aandp|Ang[0]'
+Slack : -0.247
+TNS   : -1.853
+
+Type  : Fast 1200mV 0C Model Hold 'switch_clock:clocks|update'
+Slack : 0.130
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.180
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'switch_clock:clocks|VGA_CLK'
+Slack : 0.308
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -29.428
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'switch_clock:clocks|update'
+Slack : -1.000
+TNS   : -125.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'switch_clock:clocks|VGA_CLK'
+Slack : -1.000
+TNS   : -53.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'angle_power:aandp|Ang[0]'
+Slack : 0.292
+TNS   : 0.000
+
+------------------------------------------------------------

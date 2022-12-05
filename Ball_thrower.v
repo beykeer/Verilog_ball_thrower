@@ -53,7 +53,7 @@ wire [4:0]Ang;
 
 angle_power aandp(VGA_CLK, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow, Vel, Ang);
 
-Look_Up youreabitch(Vel,Ang,Vel_x,Vel_y);
+Look_Up dataneeded(Vel,Ang,Vel_x,Vel_y);
 
 ball paul(VGA_CLK,rst,update,go,xCount,yCount,Vel_x,Vel_y,ball);
 
@@ -64,11 +64,15 @@ wire ScreenArea;
 
 reg ground;
 reg target;
+reg whitering;
+reg center;
 
 always @(posedge VGA_CLK) 
 begin
 	ground <= ((yCount >= 450) && (yCount < 481));
-	target <= ((yCount >= 450) && (yCount < 481) && (xcount > 420) && (xcount <540));
+	target <= ((yCount >= 450) && (yCount < 481) && (xCount > 420) && (xCount <540));
+	whitering <= ((yCount >= 458) && (yCount < 474) && (xCount > 425) && (xCount <535));
+	center <= ((yCount >= 462) && (yCount < 468) && (xCount > 435) && (xCount <525));
 end
 
 VGA_Controller VGA(VGA_CLK, xCount, yCount, ScreenArea, VGA_HS, VGA_VS, VGA_BLANK_N);
@@ -77,9 +81,9 @@ wire R;
 wire G;
 wire B;
 
-assign R = (target) || (arrow) || (ball);
-assign G = (ground) || (ball);
-assign B = (ball);
+assign R = ((target && ~ball) || (arrow) || (center && ~ball));
+assign G = (ground && ~target && ~ball)||(whitering && ~center && ~ball)||(ScreenArea && ~ground && ~ball && ~arrow);
+assign B = (ball)||(whitering && ~center) || (ScreenArea && ~ground && ~ball && ~arrow);
 
 
 always @ (posedge VGA_CLK)

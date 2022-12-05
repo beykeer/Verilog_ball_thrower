@@ -1,0 +1,837 @@
+Analysis & Synthesis report for Ball_thrower
+Mon Dec 05 15:49:24 2022
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |Ball_thrower|ball:paul|S
+ 10. State Machine - |Ball_thrower|angle_power:aandp|S
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for Inferred Entity Instance: ball:paul|lpm_divide:Div0
+ 16. Parameter Settings for Inferred Entity Instance: ball:paul|lpm_mult:Mult0
+ 17. Parameter Settings for Inferred Entity Instance: ball:paul|lpm_divide:Div1
+ 18. Parameter Settings for Inferred Entity Instance: ball:paul|lpm_mult:Mult1
+ 19. Parameter Settings for Inferred Entity Instance: ball:paul|lpm_mult:Mult2
+ 20. lpm_mult Parameter Settings by Entity Instance
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+ 24. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Dec 05 15:49:24 2022       ;
+; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                      ; Ball_thrower                                ;
+; Top-level Entity Name              ; Ball_thrower                                ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 846                                         ;
+;     Total combinational functions  ; 821                                         ;
+;     Dedicated logic registers      ; 170                                         ;
+; Total registers                    ; 170                                         ;
+; Total pins                         ; 52                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 4                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; Ball_thrower       ; Ball_thrower       ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; Ball_thrower.v                   ; yes             ; User Verilog HDL File        ; M:/Verilog_ball_thrower-main/Ball_thrower.v                                ;         ;
+; VGA_Controller.v                 ; yes             ; User Verilog HDL File        ; M:/Verilog_ball_thrower-main/VGA_Controller.v                              ;         ;
+; angle_power.v                    ; yes             ; User Verilog HDL File        ; M:/Verilog_ball_thrower-main/angle_power.v                                 ;         ;
+; ball.v                           ; yes             ; User Verilog HDL File        ; M:/Verilog_ball_thrower-main/ball.v                                        ;         ;
+; switch_clock.v                   ; yes             ; User Verilog HDL File        ; M:/Verilog_ball_thrower-main/switch_clock.v                                ;         ;
+; Look_up.v                        ; yes             ; User Verilog HDL File        ; M:/Verilog_ball_thrower-main/Look_up.v                                     ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal161.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc      ;         ;
+; db/lpm_divide_sim.tdf            ; yes             ; Auto-Generated Megafunction  ; M:/Verilog_ball_thrower-main/db/lpm_divide_sim.tdf                         ;         ;
+; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction  ; M:/Verilog_ball_thrower-main/db/sign_div_unsign_klh.tdf                    ;         ;
+; db/alt_u_div_s6f.tdf             ; yes             ; Auto-Generated Megafunction  ; M:/Verilog_ball_thrower-main/db/alt_u_div_s6f.tdf                          ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; M:/Verilog_ball_thrower-main/db/add_sub_7pc.tdf                            ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; M:/Verilog_ball_thrower-main/db/add_sub_8pc.tdf                            ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_oct.tdf                  ; yes             ; Auto-Generated Megafunction  ; M:/Verilog_ball_thrower-main/db/mult_oct.tdf                               ;         ;
+; db/mult_eat.tdf                  ; yes             ; Auto-Generated Megafunction  ; M:/Verilog_ball_thrower-main/db/mult_eat.tdf                               ;         ;
+; db/mult_6at.tdf                  ; yes             ; Auto-Generated Megafunction  ; M:/Verilog_ball_thrower-main/db/mult_6at.tdf                               ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimated Total logic elements              ; 846                      ;
+;                                             ;                          ;
+; Total combinational functions               ; 821                      ;
+; Logic element usage by number of LUT inputs ;                          ;
+;     -- 4 input functions                    ; 301                      ;
+;     -- 3 input functions                    ; 187                      ;
+;     -- <=2 input functions                  ; 333                      ;
+;                                             ;                          ;
+; Logic elements by mode                      ;                          ;
+;     -- normal mode                          ; 539                      ;
+;     -- arithmetic mode                      ; 282                      ;
+;                                             ;                          ;
+; Total registers                             ; 170                      ;
+;     -- Dedicated logic registers            ; 170                      ;
+;     -- I/O registers                        ; 0                        ;
+;                                             ;                          ;
+; I/O pins                                    ; 52                       ;
+;                                             ;                          ;
+; Embedded Multiplier 9-bit elements          ; 4                        ;
+;                                             ;                          ;
+; Maximum fan-out node                        ; angle_power:aandp|Vel[0] ;
+; Maximum fan-out                             ; 102                      ;
+; Total fan-out                               ; 2949                     ;
+; Average fan-out                             ; 2.68                     ;
++---------------------------------------------+--------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                 ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                     ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |Ball_thrower                             ; 821 (26)            ; 170 (28)                  ; 0           ; 4            ; 2       ; 1         ; 52   ; 0            ; |Ball_thrower                                                                                                           ; Ball_thrower        ; work         ;
+;    |Look_Up:dataneeded|                   ; 225 (225)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|Look_Up:dataneeded                                                                                        ; Look_Up             ; work         ;
+;    |VGA_Controller:VGA|                   ; 44 (44)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|VGA_Controller:VGA                                                                                        ; VGA_Controller      ; work         ;
+;    |angle_power:aandp|                    ; 194 (194)           ; 41 (41)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|angle_power:aandp                                                                                         ; angle_power         ; work         ;
+;    |ball:paul|                            ; 294 (130)           ; 53 (53)                   ; 0           ; 4            ; 2       ; 1         ; 0    ; 0            ; |Ball_thrower|ball:paul                                                                                                 ; ball                ; work         ;
+;       |lpm_divide:Div0|                   ; 82 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_sim:auto_generated|  ; 82 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_divide:Div0|lpm_divide_sim:auto_generated                                                   ; lpm_divide_sim      ; work         ;
+;             |sign_div_unsign_klh:divider| ; 82 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_divide:Div0|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_s6f:divider|    ; 82 (82)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_divide:Div0|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider|alt_u_div_s6f:divider ; alt_u_div_s6f       ; work         ;
+;       |lpm_divide:Div1|                   ; 82 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_sim:auto_generated|  ; 82 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_divide:Div1|lpm_divide_sim:auto_generated                                                   ; lpm_divide_sim      ; work         ;
+;             |sign_div_unsign_klh:divider| ; 82 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_divide:Div1|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_s6f:divider|    ; 82 (82)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_divide:Div1|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider|alt_u_div_s6f:divider ; alt_u_div_s6f       ; work         ;
+;       |lpm_mult:Mult0|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_mult:Mult0                                                                                  ; lpm_mult            ; work         ;
+;          |mult_oct:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_mult:Mult0|mult_oct:auto_generated                                                          ; mult_oct            ; work         ;
+;       |lpm_mult:Mult1|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_mult:Mult1                                                                                  ; lpm_mult            ; work         ;
+;          |mult_eat:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_mult:Mult1|mult_eat:auto_generated                                                          ; mult_eat            ; work         ;
+;       |lpm_mult:Mult2|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_mult:Mult2                                                                                  ; lpm_mult            ; work         ;
+;          |mult_6at:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |Ball_thrower|ball:paul|lpm_mult:Mult2|mult_6at:auto_generated                                                          ; mult_6at            ; work         ;
+;    |switch_clock:clocks|                  ; 38 (38)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Ball_thrower|switch_clock:clocks                                                                                       ; switch_clock        ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 2           ;
+; Simple Multipliers (18-bit)           ; 1           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 4           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 3           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------+
+; State Machine - |Ball_thrower|ball:paul|S                                       ;
++----------------+-------------+----------------+--------------+---------+--------+
+; Name           ; S.move_ball ; S.adjust_value ; S.Check_loop ; S.START ; S.done ;
++----------------+-------------+----------------+--------------+---------+--------+
+; S.START        ; 0           ; 0              ; 0            ; 0       ; 0      ;
+; S.Check_loop   ; 0           ; 0              ; 1            ; 1       ; 0      ;
+; S.adjust_value ; 0           ; 1              ; 0            ; 1       ; 0      ;
+; S.move_ball    ; 1           ; 0              ; 0            ; 1       ; 0      ;
+; S.done         ; 0           ; 0              ; 0            ; 1       ; 1      ;
++----------------+-------------+----------------+--------------+---------+--------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Ball_thrower|angle_power:aandp|S                                                                                                                                    ;
++-------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-------------+-----------+-------------+--------+
+; Name        ; S.DELAY6P ; S.DELAY5P ; S.DELAY4P ; S.DELAY3P ; S.DELAY2P ; S.DELAY1P ; S.DELAY3A ; S.DELAY2A ; S.DELAY1A ; S.ANGLEUP ; S.POWERDOWN ; S.POWERUP ; S.ANGLEDOWN ; S.STAY ;
++-------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-------------+-----------+-------------+--------+
+; S.STAY      ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0           ; 0         ; 0           ; 0      ;
+; S.ANGLEDOWN ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0           ; 0         ; 1           ; 1      ;
+; S.POWERUP   ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0           ; 1         ; 0           ; 1      ;
+; S.POWERDOWN ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1           ; 0         ; 0           ; 1      ;
+; S.ANGLEUP   ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0           ; 0         ; 0           ; 1      ;
+; S.DELAY1A   ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0           ; 0         ; 0           ; 1      ;
+; S.DELAY2A   ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0           ; 0         ; 0           ; 1      ;
+; S.DELAY3A   ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0           ; 0         ; 0           ; 1      ;
+; S.DELAY1P   ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0           ; 0         ; 0           ; 1      ;
+; S.DELAY2P   ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0           ; 0         ; 0           ; 1      ;
+; S.DELAY3P   ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0           ; 0         ; 0           ; 1      ;
+; S.DELAY4P   ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0           ; 0         ; 0           ; 1      ;
+; S.DELAY5P   ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0           ; 0         ; 0           ; 1      ;
+; S.DELAY6P   ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0           ; 0         ; 0           ; 1      ;
++-------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-------------+-----------+-------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                     ;
++-----------------------------------------------------+--------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal      ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------+------------------------+
+; Look_Up:dataneeded|Vel_y[4]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_y[5]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_y[6]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_y[7]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_y[8]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_y[9]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_x[4]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_x[5]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_x[6]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_x[7]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_x[8]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_x[9]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_y[3]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_x[3]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_y[2]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_x[2]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_y[1]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Look_Up:dataneeded|Vel_x[1]                         ; Look_Up:dataneeded|Mux20 ; yes                    ;
+; Number of user-specified and inferred latches = 18  ;                          ;                        ;
++-----------------------------------------------------+--------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; angle_power:aandp|arrowY[0][0]        ; Stuck at VCC due to stuck port data_in ;
+; ball:paul|S~2                         ; Lost fanout                            ;
+; ball:paul|S~3                         ; Lost fanout                            ;
+; angle_power:aandp|S~2                 ; Lost fanout                            ;
+; angle_power:aandp|S~3                 ; Lost fanout                            ;
+; angle_power:aandp|S~4                 ; Lost fanout                            ;
+; angle_power:aandp|S~5                 ; Lost fanout                            ;
+; ball:paul|S.done                      ; Lost fanout                            ;
+; ball:paul|i[10]                       ; Lost fanout                            ;
+; Total Number of Removed Registers = 9 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 170   ;
+; Number of registers using Synchronous Clear  ; 29    ;
+; Number of registers using Synchronous Load   ; 7     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 70    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Ball_thrower|angle_power:aandp|Vel[0]       ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Ball_thrower|angle_power:aandp|Ang[1]       ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Ball_thrower|ball:paul|ballY[0][0]          ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |Ball_thrower|angle_power:aandp|arrowX[0][5] ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 27 LEs               ; 9 LEs                  ; Yes        ; |Ball_thrower|angle_power:aandp|arrowX[0][4] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Ball_thrower|ball:paul|i[0]                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ball:paul|lpm_divide:Div0 ;
++------------------------+----------------+----------------------------------+
+; Parameter Name         ; Value          ; Type                             ;
++------------------------+----------------+----------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                          ;
+; LPM_WIDTHD             ; 4              ; Untyped                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                          ;
+; CBXI_PARAMETER         ; lpm_divide_sim ; Untyped                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                   ;
++------------------------+----------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ball:paul|lpm_mult:Mult0           ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 10           ; Untyped             ;
+; LPM_WIDTHB                                     ; 10           ; Untyped             ;
+; LPM_WIDTHP                                     ; 20           ; Untyped             ;
+; LPM_WIDTHR                                     ; 20           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_oct     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ball:paul|lpm_divide:Div1 ;
++------------------------+----------------+----------------------------------+
+; Parameter Name         ; Value          ; Type                             ;
++------------------------+----------------+----------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                          ;
+; LPM_WIDTHD             ; 4              ; Untyped                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                          ;
+; CBXI_PARAMETER         ; lpm_divide_sim ; Untyped                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                   ;
++------------------------+----------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ball:paul|lpm_mult:Mult1           ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 9            ; Untyped             ;
+; LPM_WIDTHB                                     ; 9            ; Untyped             ;
+; LPM_WIDTHP                                     ; 18           ; Untyped             ;
+; LPM_WIDTHR                                     ; 18           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_eat     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ball:paul|lpm_mult:Mult2           ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 7            ; Untyped             ;
+; LPM_WIDTHB                                     ; 7            ; Untyped             ;
+; LPM_WIDTHP                                     ; 14           ; Untyped             ;
+; LPM_WIDTHR                                     ; 14           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_6at     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                   ;
++---------------------------------------+--------------------------+
+; Name                                  ; Value                    ;
++---------------------------------------+--------------------------+
+; Number of entity instances            ; 3                        ;
+; Entity Instance                       ; ball:paul|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 10                       ;
+;     -- LPM_WIDTHB                     ; 10                       ;
+;     -- LPM_WIDTHP                     ; 20                       ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                 ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                       ;
+;     -- USE_EAB                        ; OFF                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                       ;
+; Entity Instance                       ; ball:paul|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 9                        ;
+;     -- LPM_WIDTHB                     ; 9                        ;
+;     -- LPM_WIDTHP                     ; 18                       ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                 ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                       ;
+;     -- USE_EAB                        ; OFF                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                       ;
+; Entity Instance                       ; ball:paul|lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 7                        ;
+;     -- LPM_WIDTHB                     ; 7                        ;
+;     -- LPM_WIDTHP                     ; 14                       ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                 ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                       ;
+;     -- USE_EAB                        ; OFF                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                       ;
++---------------------------------------+--------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 52                          ;
+; cycloneiii_ff         ; 170                         ;
+;     ENA               ; 50                          ;
+;     ENA SCLR          ; 14                          ;
+;     ENA SLD           ; 6                           ;
+;     SCLR              ; 15                          ;
+;     SLD               ; 1                           ;
+;     plain             ; 84                          ;
+; cycloneiii_lcell_comb ; 824                         ;
+;     arith             ; 282                         ;
+;         2 data inputs ; 155                         ;
+;         3 data inputs ; 127                         ;
+;     normal            ; 542                         ;
+;         0 data inputs ; 17                          ;
+;         1 data inputs ; 21                          ;
+;         2 data inputs ; 143                         ;
+;         3 data inputs ; 60                          ;
+;         4 data inputs ; 301                         ;
+; cycloneiii_mac_mult   ; 3                           ;
+; cycloneiii_mac_out    ; 3                           ;
+;                       ;                             ;
+; Max LUT depth         ; 15.70                       ;
+; Average LUT depth     ; 5.16                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Mon Dec 05 15:49:11 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Ball_thrower -c Ball_thrower
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file ball_thrower.v
+    Info (12023): Found entity 1: Ball_thrower File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.v
+    Info (12023): Found entity 1: VGA_Controller File: M:/Verilog_ball_thrower-main/VGA_Controller.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file angle_power.v
+    Info (12023): Found entity 1: angle_power File: M:/Verilog_ball_thrower-main/angle_power.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ball.v
+    Info (12023): Found entity 1: ball File: M:/Verilog_ball_thrower-main/ball.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file switch_clock.v
+    Info (12023): Found entity 1: switch_clock File: M:/Verilog_ball_thrower-main/switch_clock.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file look_up.v
+    Info (12023): Found entity 1: Look_Up File: M:/Verilog_ball_thrower-main/Look_up.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at Ball_thrower.v(25): created implicit net for "go" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 25
+Info (12127): Elaborating entity "Ball_thrower" for the top level hierarchy
+Warning (10034): Output port "VGA_SYNC_N" at Ball_thrower.v(16) has no driver File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 16
+Info (12128): Elaborating entity "switch_clock" for hierarchy "switch_clock:clocks" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 36
+Info (12128): Elaborating entity "angle_power" for hierarchy "angle_power:aandp" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 54
+Info (10264): Verilog HDL Case Statement information at angle_power.v(105): all case item expressions in this case statement are onehot File: M:/Verilog_ball_thrower-main/angle_power.v Line: 105
+Info (12128): Elaborating entity "Look_Up" for hierarchy "Look_Up:dataneeded" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 56
+Warning (10270): Verilog HDL Case Statement warning at Look_up.v(10): incomplete case statement has no default case item File: M:/Verilog_ball_thrower-main/Look_up.v Line: 10
+Warning (10240): Verilog HDL Always Construct warning at Look_up.v(8): inferring latch(es) for variable "Vel_x", which holds its previous value in one or more paths through the always construct File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Warning (10240): Verilog HDL Always Construct warning at Look_up.v(8): inferring latch(es) for variable "Vel_y", which holds its previous value in one or more paths through the always construct File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_y[0]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_y[1]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_y[2]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_y[3]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_y[4]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_y[5]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_y[6]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_y[7]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_y[8]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_y[9]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_x[0]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_x[1]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_x[2]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_x[3]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_x[4]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_x[5]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_x[6]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_x[7]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_x[8]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (10041): Inferred latch for "Vel_x[9]" at Look_up.v(8) File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+Info (12128): Elaborating entity "ball" for hierarchy "ball:paul" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 58
+Warning (10230): Verilog HDL assignment warning at ball.v(92): truncated value with size 32 to match size of target (10) File: M:/Verilog_ball_thrower-main/ball.v Line: 92
+Warning (10230): Verilog HDL assignment warning at ball.v(93): truncated value with size 32 to match size of target (10) File: M:/Verilog_ball_thrower-main/ball.v Line: 93
+Warning (10230): Verilog HDL assignment warning at ball.v(98): truncated value with size 10 to match size of target (9) File: M:/Verilog_ball_thrower-main/ball.v Line: 98
+Warning (10230): Verilog HDL assignment warning at ball.v(99): truncated value with size 32 to match size of target (11) File: M:/Verilog_ball_thrower-main/ball.v Line: 99
+Info (12128): Elaborating entity "VGA_Controller" for hierarchy "VGA_Controller:VGA" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 78
+Info (278001): Inferred 5 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "ball:paul|Div0" File: M:/Verilog_ball_thrower-main/ball.v Line: 92
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "ball:paul|Mult0" File: M:/Verilog_ball_thrower-main/ball.v Line: 92
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "ball:paul|Div1" File: M:/Verilog_ball_thrower-main/ball.v Line: 93
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "ball:paul|Mult1" File: M:/Verilog_ball_thrower-main/ball.v Line: 93
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "ball:paul|Mult2" File: M:/Verilog_ball_thrower-main/ball.v Line: 93
+Info (12130): Elaborated megafunction instantiation "ball:paul|lpm_divide:Div0" File: M:/Verilog_ball_thrower-main/ball.v Line: 92
+Info (12133): Instantiated megafunction "ball:paul|lpm_divide:Div0" with the following parameter: File: M:/Verilog_ball_thrower-main/ball.v Line: 92
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_sim.tdf
+    Info (12023): Found entity 1: lpm_divide_sim File: M:/Verilog_ball_thrower-main/db/lpm_divide_sim.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_klh File: M:/Verilog_ball_thrower-main/db/sign_div_unsign_klh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_s6f.tdf
+    Info (12023): Found entity 1: alt_u_div_s6f File: M:/Verilog_ball_thrower-main/db/alt_u_div_s6f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: M:/Verilog_ball_thrower-main/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: M:/Verilog_ball_thrower-main/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "ball:paul|lpm_mult:Mult0" File: M:/Verilog_ball_thrower-main/ball.v Line: 92
+Info (12133): Instantiated megafunction "ball:paul|lpm_mult:Mult0" with the following parameter: File: M:/Verilog_ball_thrower-main/ball.v Line: 92
+    Info (12134): Parameter "LPM_WIDTHA" = "10"
+    Info (12134): Parameter "LPM_WIDTHB" = "10"
+    Info (12134): Parameter "LPM_WIDTHP" = "20"
+    Info (12134): Parameter "LPM_WIDTHR" = "20"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_oct.tdf
+    Info (12023): Found entity 1: mult_oct File: M:/Verilog_ball_thrower-main/db/mult_oct.tdf Line: 29
+Info (12130): Elaborated megafunction instantiation "ball:paul|lpm_divide:Div1" File: M:/Verilog_ball_thrower-main/ball.v Line: 93
+Info (12133): Instantiated megafunction "ball:paul|lpm_divide:Div1" with the following parameter: File: M:/Verilog_ball_thrower-main/ball.v Line: 93
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "ball:paul|lpm_mult:Mult1" File: M:/Verilog_ball_thrower-main/ball.v Line: 93
+Info (12133): Instantiated megafunction "ball:paul|lpm_mult:Mult1" with the following parameter: File: M:/Verilog_ball_thrower-main/ball.v Line: 93
+    Info (12134): Parameter "LPM_WIDTHA" = "9"
+    Info (12134): Parameter "LPM_WIDTHB" = "9"
+    Info (12134): Parameter "LPM_WIDTHP" = "18"
+    Info (12134): Parameter "LPM_WIDTHR" = "18"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_eat.tdf
+    Info (12023): Found entity 1: mult_eat File: M:/Verilog_ball_thrower-main/db/mult_eat.tdf Line: 29
+Info (12130): Elaborated megafunction instantiation "ball:paul|lpm_mult:Mult2" File: M:/Verilog_ball_thrower-main/ball.v Line: 93
+Info (12133): Instantiated megafunction "ball:paul|lpm_mult:Mult2" with the following parameter: File: M:/Verilog_ball_thrower-main/ball.v Line: 93
+    Info (12134): Parameter "LPM_WIDTHA" = "7"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "14"
+    Info (12134): Parameter "LPM_WIDTHR" = "14"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_6at.tdf
+    Info (12023): Found entity 1: mult_6at File: M:/Verilog_ball_thrower-main/db/mult_6at.tdf Line: 29
+Warning (13012): Latch Look_Up:dataneeded|Vel_y[4] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_y[5] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_y[6] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_y[7] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_y[8] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Vel[1] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_y[9] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Vel[2] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_x[4] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_x[5] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_x[6] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_x[7] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_x[8] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_x[9] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Vel[2] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_y[3] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_x[3] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_y[2] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_x[2] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_y[1] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13012): Latch Look_Up:dataneeded|Vel_x[1] has unsafe behavior File: M:/Verilog_ball_thrower-main/Look_up.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal angle_power:aandp|Ang[4] File: M:/Verilog_ball_thrower-main/angle_power.v Line: 94
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 16
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 8 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file M:/Verilog_ball_thrower-main/output_files/Ball_thrower.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 16 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[1]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[2]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[3]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[4]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[5]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[6]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[7]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[8]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[9]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[10]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[11]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[12]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[13]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[14]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[15]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+    Warning (15610): No output dependent on input pin "SW[16]" File: M:/Verilog_ball_thrower-main/Ball_thrower.v Line: 9
+Info (21057): Implemented 908 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 23 input pins
+    Info (21059): Implemented 29 output pins
+    Info (21061): Implemented 852 logic cells
+    Info (21062): Implemented 4 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 65 warnings
+    Info: Peak virtual memory: 4801 megabytes
+    Info: Processing ended: Mon Dec 05 15:49:24 2022
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:23
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in M:/Verilog_ball_thrower-main/output_files/Ball_thrower.map.smsg.
+
+
