@@ -41,35 +41,35 @@ localparam ANGLEUP = 3'd0,
 always @(*) 
 	case (S)
 		ANGLEUP:
-			begin
-				if(angleup == 1'b0 && Ang > 5'd16)
-					NS = ANGLEUP;
-					
-				else
+			//begin
+			//	if(angleup == 1'b0 && Ang > 5'd16)
+			//		NS = ANGLEUP;
+			//		
+			//	else
 					NS = STAY;
-			end
+			//end
 			
 		ANGLEDOWN:
-			begin
-				if(angledown == 1'b0 && Ang < 5'd0)
-					NS = ANGLEDOWN;
-				else
+			//begin
+			//	if(angledown == 1'b0 && Ang < 5'd0)
+			//		NS = ANGLEDOWN;
+			//	else
 					NS = STAY;
-			end
+			//end
 		POWERUP:
-			begin
-				if(powerup == 1'b0 && Vel > 3'd5)
-					NS = POWERUP;
-				else
+			//begin
+			//	if(powerup == 1'b0 && Vel > 3'd5)
+			//		NS = POWERUP;
+			//	else
 					NS = STAY;
-			end
+			//end
 		POWERDOWN:
-			begin
-				if(powerdown == 1'b0 && Vel < 3'd0)
-					NS = POWERDOWN;
-				else
+			//begin
+			//	if(powerdown == 1'b0 && Vel < 3'd0)
+			//		NS = POWERDOWN;
+			//	else
 					NS = STAY;
-			end
+			//end
 		STAY: 
 			begin
 				if(angleup == 1'b0 && Ang < 5'd16)
