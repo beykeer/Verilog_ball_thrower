@@ -63,10 +63,12 @@ wire [9:0] yCount;
 wire ScreenArea;
 
 reg ground;
+reg target;
 
 always @(posedge VGA_CLK) 
 begin
 	ground <= ((yCount >= 450) && (yCount < 481));
+	target <= ((yCount >= 450) && (yCount < 481) && (xcount > 420) && (xcount <540));
 end
 
 VGA_Controller VGA(VGA_CLK, xCount, yCount, ScreenArea, VGA_HS, VGA_VS, VGA_BLANK_N);
@@ -75,7 +77,7 @@ wire R;
 wire G;
 wire B;
 
-assign R = (arrow) || (ball);
+assign R = (target) || (arrow) || (ball);
 assign G = (ground) || (ball);
 assign B = (ball);
 
