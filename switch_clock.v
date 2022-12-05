@@ -9,7 +9,7 @@ reg i;
 always@(posedge clk)
 	begin
 		count <= count + 22'd1;
-		if(count == 22'd1250000)
+		if(count == 22'd200000)
 		begin
 			update <= ~update;
 			count <= 22'd0;

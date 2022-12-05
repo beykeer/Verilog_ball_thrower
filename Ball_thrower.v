@@ -25,10 +25,12 @@ assign clk = CLOCK_50;
 assign go = SW[0];
 assign rst = SW[17];
 
+
+
 wire [9:0]Vel_x;
 wire [9:0]Vel_y;
 
-//reg VGA_CLK; 
+ 
 wire update;
 
 switch_clock clocks(clk, update, VGA_CLK); //converts the board clock to VGA clock and frame update clock
@@ -49,28 +51,33 @@ assign powerdown = KEY[3];
 wire [2:0]Vel;
 wire [4:0]Ang;
 
-angle_power aandp(VGA_CLK, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow,Vel,Ang);
+angle_power aandp(VGA_CLK, rst, angleup, angledown, powerup, powerdown, update, xCount, yCount, arrow, Vel, Ang);
 
-ball(VGA_CLK,rst,update,xCount,yCount,Vel_x,Vel_y,ball);
+Look_Up youreabitch(Vel,Ang,Vel_x,Vel_y);
+
+ball paul(VGA_CLK,rst,update,go,xCount,yCount,Vel_x,Vel_y,ball);
 
 //display
 wire [9:0] xCount; 
 wire [9:0] yCount;
 wire ScreenArea;
 
-VGA_Controller VGA(VGA_CLK, xCount, yCount, ScreenArea, hsync, vsync, blank_n);
+reg ground;
 
-reg R;
-reg G;
-reg B;
+always @(posedge VGA_CLK) 
+begin
+	ground <= ((yCount >= 450) && (yCount < 481));
+end
 
-always @(posedge VGA_CLK)
-	begin
-		if (rst == 1'b1)
-			begin
-				
-			end
-	end
+VGA_Controller VGA(VGA_CLK, xCount, yCount, ScreenArea, VGA_HS, VGA_VS, VGA_BLANK_N);
+
+wire R;
+wire G;
+wire B;
+
+assign R = (arrow) || (ball);
+assign G = (ground) || (ball);
+assign B = (ball);
 
 
 always @ (posedge VGA_CLK)

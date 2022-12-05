@@ -11,12 +11,12 @@ wire rst;
 
 always @(posedge clk)
 begin
-	arrow = (xCount > arrowX[0] && xCount < (arrowX[0] + 10'd10)) && (yCount > arrowY[0] && yCount < (arrowY[0] + 10'd10));
+	arrow = (xCount > arrowX[0] && xCount < (arrowX[0] + 10'd5)) && (yCount > arrowY[0] && yCount < (arrowY[0] + 10'd5));
 
 end
 
-reg[9:0] arrowX [0:5];
-reg [8:0]arrowY [0:5]; 
+reg[9:0] arrowX[0:9];
+reg [8:0]arrowY[0:9]; 
 
 
 //determines the direction and power ball is launched
@@ -42,7 +42,7 @@ always @(*)
 	case (S)
 		ANGLEUP:
 			begin
-				if(angleup == 1'b0 && Ang < 5'd16)
+				if(angleup == 1'b0 && Ang > 5'd16)
 					NS = ANGLEUP;
 					
 				else
@@ -51,21 +51,21 @@ always @(*)
 			
 		ANGLEDOWN:
 			begin
-				if(angledown == 1'b0 && Ang > 5'd0)
+				if(angledown == 1'b0 && Ang < 5'd0)
 					NS = ANGLEDOWN;
 				else
 					NS = STAY;
 			end
 		POWERUP:
 			begin
-				if(powerup == 1'b0 && Vel < 3'd5)
+				if(powerup == 1'b0 && Vel > 3'd5)
 					NS = POWERUP;
 				else
 					NS = STAY;
 			end
 		POWERDOWN:
 			begin
-				if(powerdown == 1'b0 && Vel > 3'd0)
+				if(powerdown == 1'b0 && Vel < 3'd0)
 					NS = POWERDOWN;
 				else
 					NS = STAY;
@@ -90,7 +90,7 @@ always @(*)
 	if (rst == 1'b1)
 		begin //starting position
 			arrowX[0] <= 10'd31;
-			arrowY[0] <= 9'd443;
+			arrowY[0] <= 9'd425;
 			Vel <= 3'd0;
 			Ang <= 5'd0;
 		end
@@ -118,7 +118,7 @@ always @(*)
 				begin
 					arrowX[0] <= (arrowX[0] - 10'd4);
 					arrowY[0] <= (arrowY[0] + 9'd10);
-					Vel <= Vel + 3'd1;
+					Vel <= Vel - 3'd1;
 				end
 			STAY:
 				begin
